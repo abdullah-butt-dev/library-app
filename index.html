@@ -30,6 +30,45 @@
   <footer class="footer">
     <div>@2025 The Odin Project | All Rights Reserved</div>
   </footer>
+
+  <dialog class="dialog">
+    <p>Add a new book</p>
+    <form method="dialog">
+
+      <p>
+        <label for="book-image">Image URL</label>
+        <input type="text" id="book-image" name="book-image" placeholder="https://www.example.com/image.png" required>
+      </p>
+
+      <p>
+        <label for="book-name">Name</label>
+        <input type="text" id="book-name" name="book-name" placeholder="Harry Potter" required>
+      </p>
+        
+      <p>
+        <label for="book-author">Author</label>
+        <input type="text" id="book-author" name="book-author" placeholder="J.K. Rowling" required>
+      </p>
+
+      <p>
+        <label for="book-pages">Pages</label>
+        <input type="tel" id="book-pages" name="book-pages" placeholder="300" required>
+      </p>
+
+      <p>
+        <p>Read Status</p>
+        <input type="radio" id="read-yes" name="read-status" value="Yes" checked>
+        <label for="read-yes">Yes</label>
+        
+        <input type="radio" id="read-no" name="read-status" value="No">
+        <label for="read-no">No</label>
+      </p>
+
+      <button type="submit" class="submit-btn">Submit</button>
+      <button class="close" autofocus>Close</button>  
+    </form>
+  </dialog>
+
   
 
   <script src="script.js"></script>

@@ -1,4 +1,16 @@
 const bookContainer = document.querySelector('.book-container');
+const addBtn = document.querySelector('.add-btn');
+
+const dialog = document.querySelector('.dialog');
+
+const image = document.getElementById("book-image")
+const name = document.getElementById("book-name")
+const author = document.getElementById("book-author")
+const pages = document.getElementById("book-pages")
+
+const submitBtn = document.querySelector('.submit-btn');
+const closeBtn = document.querySelector('.close');
+
 const myLibrary = [];
 
 function Book(imageLink, id, title, author, pages, readStatus) {
@@ -26,6 +38,9 @@ function addBookToLibrary(imageLink, title, author, pages, readStatus) {
 }
 
 function displayBooks() {
+
+  bookContainer.innerHTML = ``;
+
   for(const book of myLibrary) {
 
     bookContainer.innerHTML += `
@@ -49,3 +64,27 @@ addBookToLibrary('https://razarumi.com/wp-content/uploads/2022/03/the-murder-of-
 addBookToLibrary('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRGTbpydDXhx0pgNMlb480AbauiFjPziZdLQ&s', '1984', 'George Orwell', 327, 'No');
 addBookToLibrary('https://readings-storage.s3.ap-south-1.amazonaws.com/images/9781591847816.webp', 'Ego is the enemy', 'Ryan Holiday', 180, 'No');
 displayBooks();
+
+
+addBtn.addEventListener('click', () => {
+  dialog.showModal();
+});
+
+submitBtn.addEventListener('click', () => {
+  const imageValue = image.value;
+  const nameValue = name.value;
+  const authorValue = author.value;
+  const pagesValue = pages.value;
+  const readStatus = document.querySelector('input[name="read-status"]:checked');
+  const readStatusValue = readStatus.value;
+
+  addBookToLibrary(imageValue, nameValue, authorValue, pagesValue, readStatusValue);
+
+  displayBooks();
+
+});
+
+closeBtn.addEventListener('click', () => {
+  dialog.close();
+})
+

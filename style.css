@@ -64,8 +64,8 @@
 
 .book-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 4rem 2rem;
   margin-top: 3rem;
 }
 
@@ -104,7 +104,7 @@
   font-size: 1.2rem;
 }
 
-.remove-btn, .mark-btn {
+.remove-btn, .mark-btn, .dialog button {
   border: none;
   padding: 6px 24px;
   font-size: 1.3rem;
@@ -118,7 +118,7 @@
   transition: 0.3s ease;
 }
 
-.remove-btn:hover, .mark-btn:hover, .add-btn:hover {
+.remove-btn:hover, .mark-btn:hover, .add-btn:hover, .dialog button:hover {
   background-color: #c50609;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
 }
@@ -128,3 +128,51 @@
   font-size: 1.5rem;
 }
 
+dialog {
+  padding: 5rem;
+  background-color: var(--bg-color);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 15px;
+  border: 3px solid transparent;
+  margin: auto auto;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog > p {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+form {
+  font-size: 2rem;
+}
+
+input[type="text"], input[type="tel"] {
+  font-size: 2rem;
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+}
+
+input[type="text"]:hover , input[type="tel"]:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.36);
+}    
+
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.dialog button {
+  padding: 1rem 5rem;
+  margin-top: 1.5rem;
+}
