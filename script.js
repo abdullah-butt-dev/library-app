@@ -28,13 +28,20 @@ function Book(imageLink, id, title, author, pages, readStatus) {
 
 }
 
-
 function addBookToLibrary(imageLink, title, author, pages, readStatus) {
 
   const id = crypto.randomUUID();
   const book = new Book(imageLink, id, title, author, pages, readStatus);
   myLibrary.push(book);
+  console.log(myLibrary)
 
+}
+
+function removeBookFromLibrary(bookId) {
+  const bookToRemove = document.querySelector(`.book-card[data-id="${bookId}"]`);
+  bookToRemove.remove();
+  const indexToRemove = myLibrary.findIndex(book => book.id === bookId);
+  myLibrary.splice(indexToRemove, 1);
 }
 
 function displayBooks() {
@@ -44,7 +51,7 @@ function displayBooks() {
   for(const book of myLibrary) {
 
     bookContainer.innerHTML += `
-      <div class="book-card">
+      <div class="book-card" data-id=${book.id}>
           <div class="book-img">
             <img src="${book.imageLink}" alt="Book">
           </div>
@@ -58,6 +65,15 @@ function displayBooks() {
     `;
 
   }
+    
+  document.querySelectorAll('.remove-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.book-card');
+      const bookId = card.dataset.id;
+      removeBookFromLibrary(bookId);
+    })
+  })
+
 }
 
 addBookToLibrary('https://razarumi.com/wp-content/uploads/2022/03/the-murder-of-history-600x600-1.png', 'The Murder of History', 'K.K.Aziz', 200, 'Yes');
@@ -87,4 +103,5 @@ submitBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   dialog.close();
 })
+
 
