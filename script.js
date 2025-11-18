@@ -111,7 +111,7 @@ function displayBooks() {
 
 }
 
-addBookToLibrary('https://razarumi.com/wp-content/uploads/2022/03/the-murder-of-history-600x600-1.png', 'The Murder of History', 'K.K.Aziz', 200, 'Yes');
+addBookToLibrary('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpVv3FC9LXj1sr9EOOt-pmDcC3LaocHLT-XA&s', 'The Murder of History', 'K.K.Aziz', 200, 'Yes');
 addBookToLibrary('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRGTbpydDXhx0pgNMlb480AbauiFjPziZdLQ&s', '1984', 'George Orwell', 327, 'No');
 addBookToLibrary('https://readings-storage.s3.ap-south-1.amazonaws.com/images/9781591847816.webp', 'Ego is the enemy', 'Ryan Holiday', 180, 'No');
 addBookToLibrary('https://m.media-amazon.com/images/I/81kg51XRc1L.jpg', 'Atomic Habits', 'James Clear', 320, 'Yes');
