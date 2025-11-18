@@ -28,12 +28,24 @@ function Book(imageLink, id, title, author, pages, readStatus) {
 
 }
 
+Book.prototype.toggleReadStatus = function(cardReadElement) {
+  
+  if(this.readStatus == 'Yes') {
+    this.readStatus = 'No';
+  }
+  else {
+    this.readStatus = 'Yes';
+  }
+
+  cardReadElement.textContent = `Read: ${this.readStatus}`;
+
+}
+
 function addBookToLibrary(imageLink, title, author, pages, readStatus) {
 
   const id = crypto.randomUUID();
   const book = new Book(imageLink, id, title, author, pages, readStatus);
   myLibrary.push(book);
-  console.log(myLibrary)
 
 }
 
@@ -60,7 +72,7 @@ function displayBooks() {
           <div class="book-pages">Pages: ${book.pages}</div>
           <div class="book-readStatus">Read: ${book.readStatus}</div>
           <button class="remove-btn">Remove</button>
-          <button class="mark-btn">Mark Read</button>
+          <button class="mark-btn">${book.readStatus === "Yes" ? "Mark Unread" : "Mark Read"}</button>
       </div>
     `;
 
@@ -72,6 +84,29 @@ function displayBooks() {
       const bookId = card.dataset.id;
       removeBookFromLibrary(bookId);
     })
+  })
+
+  document.querySelectorAll('.mark-btn').forEach(button => {
+    
+    button.addEventListener('click', () => {
+      
+      const markBtn = button.closest('.mark-btn');
+      
+      if(markBtn.textContent == 'Mark Read') {
+        markBtn.textContent = 'Mark Unread';
+      }
+      else {
+        markBtn.textContent = 'Mark Read';
+      }
+
+      const card = button.closest('.book-card');
+      const bookId = card.dataset.id;
+      const indexOfBook = myLibrary.findIndex(book => book.id == bookId)
+      const cardReadElement = card.children[4];
+      myLibrary[indexOfBook].toggleReadStatus(cardReadElement);
+
+    })
+
   })
 
 }
