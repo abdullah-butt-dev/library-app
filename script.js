@@ -121,7 +121,16 @@ addBtn.addEventListener('click', () => {
   dialog.showModal();
 });
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', (event) => {
+
+  const myForm = document.querySelector('.form');
+
+  if(!myForm.checkValidity()) {
+    return;
+  }
+
+  event.preventDefault();
+
   const imageValue = image.value;
   const nameValue = name.value;
   const authorValue = author.value;
@@ -129,9 +138,12 @@ submitBtn.addEventListener('click', () => {
   const readStatus = document.querySelector('input[name="read-status"]:checked');
   const readStatusValue = readStatus.value;
 
+  myForm.reset();
+  
   addBookToLibrary(imageValue, nameValue, authorValue, pagesValue, readStatusValue);
-
+  
   displayBooks();
+  
 
 });
 
