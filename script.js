@@ -114,6 +114,11 @@ function displayBooks() {
 addBookToLibrary('https://razarumi.com/wp-content/uploads/2022/03/the-murder-of-history-600x600-1.png', 'The Murder of History', 'K.K.Aziz', 200, 'Yes');
 addBookToLibrary('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRGTbpydDXhx0pgNMlb480AbauiFjPziZdLQ&s', '1984', 'George Orwell', 327, 'No');
 addBookToLibrary('https://readings-storage.s3.ap-south-1.amazonaws.com/images/9781591847816.webp', 'Ego is the enemy', 'Ryan Holiday', 180, 'No');
+addBookToLibrary('https://m.media-amazon.com/images/I/81kg51XRc1L.jpg', 'Atomic Habits', 'James Clear', 320, 'Yes');
+addBookToLibrary('https://www.penguinrandomhouse.co.za/sites/penguinbooks.co.za/files/cover/9780099590088.jpg', 'Sapiens: A Brief history of Humankind', 'Yuval Noah Harari', 443, 'No');
+addBookToLibrary('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3sNoBdV-gCmgfq58BE6IlQ_fwkSZjD143FA&s', 'Think and Grow Rich', 'Napoleon Hill', 238, 'No');
+addBookToLibrary('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ImvQ8AfMLWqt5ZZq7hatx_jK0avBr7ZJCw&s', 'The Psychology of Money', 'Morgan Housel', 256, 'No');
+
 displayBooks();
 
 
